@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todoey/screens/tasks.dart';
+import 'package:flutter_todoey/models/task_data.dart';
+import 'package:flutter_todoey/screens/tasks_screen.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(Todo());
-}
+void main() => runApp(MyApp());
 
-class Todo extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: TaskScreen());
+    return ChangeNotifierProvider(
+      builder: (context) => TaskData(),
+      create: (BuildContext context) {  },
+      child: MaterialApp(
+        home: TasksScreen(),
+      ),
+    );
   }
 }
